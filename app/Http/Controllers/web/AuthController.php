@@ -26,6 +26,9 @@ class AuthController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
+
+
+        // dd($validator);
     //     $hashedPassword = Hash::make($validator['password']);
     //     // dd($hashedPassword);
     //   $user = User::where('email',$validator['email'])->first();
