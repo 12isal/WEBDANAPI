@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\web\AuthController;
+use App\Http\Controllers\web\tamuController;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Route;
 
@@ -16,8 +17,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('login',[AuthController::class,'index'])->name('login');
-Route::post('login',[AuthController::class,'login']);
+Route::get('/',[AuthController::class,'index'])->name('login');
+Route::post('/login',[AuthController::class,'login']);
+Route::get('/tamu',[tamuController::class,'index']);
+Route::post('/tamuKirim',[tamuController::class,'kirim']);
 
 
 
@@ -26,6 +29,7 @@ Route::group(['middleware' => ['auth:web']], function() {
         return view('welcome');
     })->name('test');
     Route::get('logout',[AuthController::class,'logout']);
+   
 });
 
 // Route::group(['middleware' => 'auth'], function() {
